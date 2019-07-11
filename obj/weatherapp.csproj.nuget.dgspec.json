@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj": {}
+  },
+  "projects": {
+    "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj",
+        "projectName": "weatherapp",
+        "projectPath": "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj",
+        "packagesPath": "/home/joe/.nuget/packages/",
+        "outputPath": "/home/joe/netcore/weatherapp/weatherapp/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/joe/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            },
+            "System.Runtime.Serialization.Json": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Runtime.Serialization.Primitives": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
