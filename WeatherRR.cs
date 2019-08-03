@@ -30,12 +30,9 @@ namespace weatherapp
 
         public static WeatherData ParseWeather()
         {
-            var weather = CallDarkSky().Result;
-            var direction = GetDirections(weather.currently.windBearing);
-            Console.WriteLine($"Daily Summary: {weather.daily.summary}");
-            Console.WriteLine($"Current Precip Probability: {weather.currently.precipProbability}");
-            Console.WriteLine($"The current wind speed is: {weather.currently.windSpeed} mph with gusts up to {weather.currently.windGust} mph out of the {direction}");
-            Console.WriteLine($"The nearest storm is {weather.currently.nearestStormDistance} miles away and moving to the {direction}");
+            WeatherData weather = NewMethod();
+
+            // cloud cover, visibility, wind direction,  
             if (weather.alerts != null)
             {
                 Console.WriteLine(ParseAlertData(weather.alerts));
@@ -44,12 +41,28 @@ namespace weatherapp
             {
                 Console.WriteLine("No alerts at this time");
             }
-            
+
+            using (var db = new WeatherContext())
+            {
+                
+            }
+            return weather;
+        }
+
+        private static WeatherData NewMethod()
+        {
+            var weather = CallDarkSky().Result;
+            var direction = GetDirections(weather.currently.windBearing);
+            Console.WriteLine($"Daily Summary: {weather.daily.summary}");
+            Console.WriteLine($"Current Precip Probability: {weather.currently.precipProbability}");
+            Console.WriteLine($"The current wind speed is: {weather.currently.windSpeed} mph with gusts up to {weather.currently.windGust} mph out of the {direction}");
+            Console.WriteLine($"The nearest storm is {weather.currently.nearestStormDistance} miles away and moving to the {direction}");
             return weather;
         }
 
         public static string ParseAlertData(List<Alerts> alerts)
-        {
+        { 
+            // There's probably a better way to do this...
             if(alerts.Count > 0)
             {
                 foreach (var alert in alerts)
@@ -65,22 +78,8 @@ namespace weatherapp
             }
             return "";
         }
-        /*
-        
-            bool v = weather.alerts == null;
-            if (v)
-            {
-                Console.WriteLine("No alerts");
-                return weather;
-            }
-            else
-            {
-                Console.WriteLine(ParseAlertData().Result());
-                return weather;
-            }
-        */
 
-        public static string  GetDirections(double number)
+        public static string GetDirections(double number)
         {
             if( 22.5 < number || number <= 67.5)
             {

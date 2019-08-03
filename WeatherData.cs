@@ -1,12 +1,15 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace weatherapp
 {
-    [DataContract(Name="weatherData")]
+    [DataContract(Name = "weatherData")]
     public class WeatherData
     {
+        [Key]
+        public string Call_Id { get; set; }
         [DataMember]
         public double latitude { get; set; }
         [DataMember]
@@ -25,9 +28,11 @@ namespace weatherapp
         public int? offset { get; set; }
 
     }
-    [DataContract(Name="currently")]
+    [DataContract(Name = "currently")]
     public class Currently
     {
+        [Key]
+        public string Currently_Id { get; set; }
         [DataMember]
         public string time { get; set; }
         [DataMember]
@@ -68,9 +73,11 @@ namespace weatherapp
         public double ozone { get; set; }
 
     }
-    [DataContract(Name="daily")]
+    [DataContract(Name = "daily")]
     public class Daily
     {
+        [Key]
+        public string Daily_Id { get; set; }
         [DataMember]
         public string summary { get; set; }
         [DataMember]
@@ -79,9 +86,11 @@ namespace weatherapp
         public List<Days> days { get; set; }
 
     }
-    [DataContract(Name="Days")]
+    [DataContract(Name = "Days")]
     public class Days
     {
+        [Key]
+        public string Days_Id { get; set; }
         [DataMember]
         public string time { get; set; }
         [DataMember]
@@ -163,26 +172,34 @@ namespace weatherapp
     }
 
 
-    [DataContract(Name="Flags")]
+    [DataContract(Name = "Flags")]
     public class Flags
     {
+        [Key]
+        public string Flag_Id { get; set; }
         [DataMember]
-        public List<string> sources { get; set; }
+        public List<Flags> sources { get; set; }
         [DataMember]
         public string units { get; set; }
     }
 
-[DataContract(Name="alerts")]
+    [DataContract(Name = "alerts")]
     public class Alerts
     {
+        [Key]
+        public string Alerts_Id {get; set;}
+
         [DataMember]
         public string alert_title { get; set; }
+        
         [DataMember]
-        public List<string> regions { get; set; }
+        public List<Alerts> regions { get; set; }
+        
+        
+        
         [DataMember]
         public string severity { get; set; }
         [DataMember]
         public string alert_time { get; set; }
-
     }
 }
