@@ -24,11 +24,21 @@ namespace weatherapp
             //var serializer = new DataContractJsonSerializer(typeof(WeatherData));
             var weather = new WeatherData();
 
-            var streamTask = await client.GetStreamAsync("https://api.darksky.net/forecast/dcd2262dfdbb2349f6e41e54e7a8d40a/41.443423,-81.775168?exclude=minutely,hourly");
-
-            WeatherData deserializedWeatherData = JsonConvert.DeserializeObject<WeatherData>(streamTask.ToJson());
-
-            return deserializedWeatherData;
+            try
+            {
+                //var streamTask = await client.GetStreamAsync("https://api.darksky.net/forecast/dcd2262dfdbb2349f6e41e54e7a8d40a/41.443423,-81.775168?exclude=minutely,hourly"))
+                HttpResponseMessage responseMessage = await client.GetAsync("https://api.darksky.net/forecast/dcd2262dfdbb2349f6e41e54e7a8d40a/41.443423,-81.775168?exclude=minutely,hourly");
+                responseMessage.EnsureSuccessStatusCode();
+                string responseBody = await responseMessage.Content.ReadAsStringAsync();
+                WeatherData deserializedWeatherData = JsonConvert.DeserializeObject<WeatherData>(responseBody);
+                return deserializedWeatherData;
+                
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine($"Cannot reach dark sky. {e}");
+                return weather;
+            }
         }
 
 
@@ -133,5 +143,10 @@ namespace weatherapp
                 return "";
             }
         }
+                //        using (var streamTask = await client.GetStreamAsync("https://api.darksky.net/forecast/dcd2262dfdbb2349f6e41e54e7a8d40a/41.443423,-81.775168?exclude=minutely,hourly"))
+                //{
+                //    WeatherData deserializedWeatherData = JsonConvert.DeserializeObject<WeatherData>(streamTask.ToString());
+                //    return deserializedWeatherData;
+                //}
     }
 }

@@ -169,7 +169,7 @@ namespace weatherapp
     public class Flags
     {
         [DataMember]
-        public List<Sources> sources { get; set; }
+        public List<Sources> sources_value { get; set; }
         [DataMember]
         public string units { get; set; }
     }
@@ -177,6 +177,8 @@ namespace weatherapp
     [DataContract(Name = "alerts")]
     public class Alerts
     {
+        [Key]
+        public int alert_id { get; set; }
 
         [DataMember]
         public string alert_title { get; set; }
