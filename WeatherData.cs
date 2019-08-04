@@ -8,8 +8,6 @@ namespace weatherapp
     [DataContract(Name = "weatherData")]
     public class WeatherData
     {
-        [Key]
-        public string Call_Id { get; set; }
         [DataMember]
         public double latitude { get; set; }
         [DataMember]
@@ -31,8 +29,6 @@ namespace weatherapp
     [DataContract(Name = "currently")]
     public class Currently
     {
-        [Key]
-        public string Currently_Id { get; set; }
         [DataMember]
         public string time { get; set; }
         [DataMember]
@@ -76,8 +72,6 @@ namespace weatherapp
     [DataContract(Name = "daily")]
     public class Daily
     {
-        [Key]
-        public string Daily_Id { get; set; }
         [DataMember]
         public string summary { get; set; }
         [DataMember]
@@ -89,8 +83,7 @@ namespace weatherapp
     [DataContract(Name = "Days")]
     public class Days
     {
-        [Key]
-        public string Days_Id { get; set; }
+        
         [DataMember]
         public string time { get; set; }
         [DataMember]
@@ -175,10 +168,8 @@ namespace weatherapp
     [DataContract(Name = "Flags")]
     public class Flags
     {
-        [Key]
-        public string Flag_Id { get; set; }
         [DataMember]
-        public List<Flags> sources { get; set; }
+        public List<Sources> sources { get; set; }
         [DataMember]
         public string units { get; set; }
     }
@@ -186,20 +177,25 @@ namespace weatherapp
     [DataContract(Name = "alerts")]
     public class Alerts
     {
-        [Key]
-        public string Alerts_Id {get; set;}
 
         [DataMember]
         public string alert_title { get; set; }
         
         [DataMember]
-        public List<Alerts> regions { get; set; }
-        
-        
+        public List<Region> region { get; set; }
         
         [DataMember]
         public string severity { get; set; }
         [DataMember]
         public string alert_time { get; set; }
+    }
+    public class Region
+    {
+        public string region_value{get; set;}
+    }
+
+    public class Sources
+    {
+        public string sources_value { get; set; }
     }
 }

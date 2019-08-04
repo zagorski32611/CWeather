@@ -21,16 +21,26 @@ namespace weatherapp
 
         public static async Task<WeatherData> CallDarkSky()
         {
-            var serializer = new DataContractJsonSerializer(typeof(WeatherData));
-            var streamTask = client.GetStreamAsync("https://api.darksky.net/forecast/dcd2262dfdbb2349f6e41e54e7a8d40a/41.443423,-81.775168?exclude=minutely,hourly");
-            var weather = serializer.ReadObject(await streamTask) as WeatherData;
-            return weather;
+            //var serializer = new DataContractJsonSerializer(typeof(WeatherData));
+            var weather = new WeatherData();
+
+            var streamTask = await client.GetStreamAsync("https://api.darksky.net/forecast/dcd2262dfdbb2349f6e41e54e7a8d40a/41.443423,-81.775168?exclude=minutely,hourly");
+
+            WeatherData deserializedWeatherData = JsonConvert.DeserializeObject<WeatherData>(streamTask.ToJson());
+
+            return deserializedWeatherData;
         }
 
 
         public static WeatherData ParseWeather()
         {
-            WeatherData weather = NewMethod();
+            var weather = CallDarkSky().Result;
+            var direction = GetDirections(weather.currently.windBearing);
+            Console.WriteLine($"Daily Summary: {weather.daily.summary}");
+            Console.WriteLine($"Current Precip Probability: {weather.currently.precipProbability}");
+            Console.WriteLine($"The current wind speed is: {weather.currently.windSpeed} mph with gusts up to {weather.currently.windGust} mph out of the {direction}");
+            Console.WriteLine($"The nearest storm is {weather.currently.nearestStormDistance} miles away and moving to the {direction}");
+
 
             // cloud cover, visibility, wind direction,  
             if (weather.alerts != null)
@@ -44,7 +54,7 @@ namespace weatherapp
 
             using (var db = new WeatherContext())
             {
-                
+                db.Add(weather);
             }
             return weather;
         }
@@ -57,6 +67,7 @@ namespace weatherapp
             Console.WriteLine($"Current Precip Probability: {weather.currently.precipProbability}");
             Console.WriteLine($"The current wind speed is: {weather.currently.windSpeed} mph with gusts up to {weather.currently.windGust} mph out of the {direction}");
             Console.WriteLine($"The nearest storm is {weather.currently.nearestStormDistance} miles away and moving to the {direction}");
+
             return weather;
         }
 
@@ -67,7 +78,7 @@ namespace weatherapp
             {
                 foreach (var alert in alerts)
                 {
-                    var alert_text = $"Current weather alert: {alert.alert_title} \t {alert.regions} \t {alert.alert_time} \t {alert.severity}";
+                    var alert_text = $"Current weather alert: {alert.alert_title} \t {alert.region} \t {alert.alert_time} \t {alert.severity}";
                     Console.WriteLine(alert_text);
                     return alert_text;
                 }
