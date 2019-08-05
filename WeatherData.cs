@@ -8,6 +8,8 @@ namespace weatherapp
     [DataContract(Name = "weatherData")]
     public class WeatherData
     {
+        [Key]
+        public int weatherdata_key { get; set; }
         [DataMember]
         public double latitude { get; set; }
         [DataMember]
@@ -29,6 +31,8 @@ namespace weatherapp
     [DataContract(Name = "currently")]
     public class Currently
     {
+        [Key]
+        public int currently_id { get; set; }
         [DataMember]
         public string time { get; set; }
         [DataMember]
@@ -72,6 +76,8 @@ namespace weatherapp
     [DataContract(Name = "daily")]
     public class Daily
     {
+        [Key]
+        public int daily_id { get; set; }
         [DataMember]
         public string summary { get; set; }
         [DataMember]
@@ -83,7 +89,8 @@ namespace weatherapp
     [DataContract(Name = "Days")]
     public class Days
     {
-        
+        [Key]
+        public int days_id { get; set; }
         [DataMember]
         public string time { get; set; }
         [DataMember]
@@ -168,6 +175,8 @@ namespace weatherapp
     [DataContract(Name = "Flags")]
     public class Flags
     {
+        [Key]
+        public int flags_id { get; set; }
         [DataMember]
         public List<Sources> sources_value { get; set; }
         [DataMember]
@@ -193,11 +202,15 @@ namespace weatherapp
     }
     public class Region
     {
+        [Key]
+        public int region_id { get; set; }
         public string region_value{get; set;}
     }
 
     public class Sources
     {
+        [Key]
+        public int sources_id { get; set; }
         public string sources_value { get; set; }
     }
 }

@@ -17,14 +17,15 @@ namespace weatherapp
             {
                 Console.WriteLine("\n Please Select an option:");
                 Console.WriteLine("1: Current Weather \t 2: Historical Weather (in development) \t e: exit the program");
-                var input =  "1"; //Console.ReadLine();
+                var input = Console.ReadLine();
                 if (input == "1")
                 {
                     WeatherRR.ParseWeather();
                 }
                 else if (input == "2")
                 {
-                    Console.WriteLine("Sorry, this feature is under development \t Please select an option lol");
+                    
+                    HistoricalData.ReadData();
                 }
                 else if (input == "e")
                 {
