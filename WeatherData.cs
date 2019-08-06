@@ -76,6 +76,8 @@ namespace weatherapp
     [DataContract(Name = "daily")]
     public class Daily
     {
+        private List<Days> days1;
+
         [Key]
         public int daily_id { get; set; }
         [DataMember]
@@ -83,7 +85,7 @@ namespace weatherapp
         [DataMember]
         public string icon { get; set; }
         [DataMember]
-        public List<Days> days { get; set; }
+        public List<Days> data { get => days1; set => days1 = value; }
 
     }
     [DataContract(Name = "Days")]
