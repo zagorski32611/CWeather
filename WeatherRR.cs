@@ -127,11 +127,12 @@ namespace weatherapp
 
         public static DateTime GetDateTime(string unixTimeStamp)
         {
-            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Local);
+            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, kind: System.DateTimeKind.Utc);
             long longTime = long.Parse(unixTimeStamp);
             long unixTimeStampInTicks = (long) (longTime * TimeSpan.TicksPerSecond);
-            
-            return new DateTime(unixStart.Ticks + unixTimeStampInTicks, kind: System.DateTimeKind.Local);
+
+            DateTime dateTime = new DateTime(ticks: unixStart.Ticks + unixTimeStampInTicks, kind: System.DateTimeKind.Utc);
+            return dateTime.ToLocalTime();
         }
     }
 }
