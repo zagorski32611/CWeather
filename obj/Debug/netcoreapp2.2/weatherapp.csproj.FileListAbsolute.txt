@@ -9,3 +9,14 @@
 /home/joe/netcore/weatherapp/weatherapp/bin/Debug/netcoreapp2.2/weatherapp.pdb
 /home/joe/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.dll
 /home/joe/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.pdb
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\bin\Debug\netcoreapp2.2\weatherapp.deps.json
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\bin\Debug\netcoreapp2.2\weatherapp.runtimeconfig.json
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\bin\Debug\netcoreapp2.2\weatherapp.runtimeconfig.dev.json
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\bin\Debug\netcoreapp2.2\weatherapp.dll
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\bin\Debug\netcoreapp2.2\weatherapp.pdb
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\obj\Debug\netcoreapp2.2\weatherapp.csprojAssemblyReference.cache
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\obj\Debug\netcoreapp2.2\weatherapp.csproj.CoreCompileInputs.cache
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\obj\Debug\netcoreapp2.2\weatherapp.AssemblyInfoInputs.cache
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\obj\Debug\netcoreapp2.2\weatherapp.AssemblyInfo.cs
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\obj\Debug\netcoreapp2.2\weatherapp.dll
+C:\Users\jzagorski\Documents\dotnetcore\CWeather\CWeather\obj\Debug\netcoreapp2.2\weatherapp.pdb

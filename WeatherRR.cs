@@ -69,7 +69,7 @@ namespace weatherapp
             {
                 foreach (var alert in alerts)
                 {
-                    var alert_text = $"Current weather alert: {alert.alert_title} \t {alert.region} \t {alert.alert_time} \t {alert.severity}";
+                    var alert_text = $"Current weather alert: {alert.alert_title}  {alert.region}  {alert.alert_time}  {alert.severity}";
                     Console.WriteLine(alert_text);
                     return alert_text;
                 }
@@ -127,20 +127,11 @@ namespace weatherapp
 
         public static DateTime GetDateTime(string unixTimeStamp)
         {
-            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Local);
             long longTime = long.Parse(unixTimeStamp);
             long unixTimeStampInTicks = (long) (longTime * TimeSpan.TicksPerSecond);
             
-            return new DateTime(unixStart.Ticks + unixTimeStampInTicks, System.DateTimeKind.Utc);
+            return new DateTime(unixStart.Ticks + unixTimeStampInTicks, kind: System.DateTimeKind.Local);
         }
     }
 }
-
-/*
-
-            var epoch = TimeSpan.FromSeconds(doubleTime);
-            DateTimeOffset.FromUnixTimeSeconds(doubleTime);
-            var localDateTime = doubleTime.ToLocalTime();
-            var localDateTime = System.DateTime.UnixEpoch.ToLocalTime(unixTimeStamp.ToString());
-            return localDateTime;
-*/

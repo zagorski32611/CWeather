@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj": {}
+    "C:\\Users\\jzagorski\\Documents\\dotnetcore\\CWeather\\CWeather\\weatherapp.csproj": {}
   },
   "projects": {
-    "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj": {
+    "C:\\Users\\jzagorski\\Documents\\dotnetcore\\CWeather\\CWeather\\weatherapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj",
+        "projectUniqueName": "C:\\Users\\jzagorski\\Documents\\dotnetcore\\CWeather\\CWeather\\weatherapp.csproj",
         "projectName": "weatherapp",
-        "projectPath": "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj",
-        "packagesPath": "/home/joe/.nuget/packages/",
-        "outputPath": "/home/joe/netcore/weatherapp/weatherapp/obj/",
+        "projectPath": "C:\\Users\\jzagorski\\Documents\\dotnetcore\\CWeather\\CWeather\\weatherapp.csproj",
+        "packagesPath": "C:\\Users\\jzagorski\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jzagorski\\Documents\\dotnetcore\\CWeather\\CWeather\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/joe/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\jzagorski\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
