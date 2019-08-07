@@ -43,6 +43,7 @@ namespace weatherapp
             Console.WriteLine($"The current wind speed is: {weather.currently.windSpeed} mph with gusts up to {weather.currently.windGust} mph out of the {direction}");
             Console.WriteLine($"The nearest storm is {weather.currently.nearestStormDistance} miles away and moving to the {direction}");
             Console.WriteLine(value: $"Almanac information: \r\n Sunrise: {GetDateTime(weather.daily.data[0].sunriseTime)} \r\n Sunset: {GetDateTime(weather.daily.data[0].sunsetTime)}");
+            Console.WriteLine(value: $"Moon Phase: {weather.daily.data[0].moonPhase}");
 
 
             // cloud cover, visibility, wind direction,  
