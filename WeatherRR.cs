@@ -70,8 +70,8 @@ namespace weatherapp
             {
                 foreach (var a in alerts)
                 {
-                    var alert_text = $"\r\n Current weather alert: {a.severity}. {a.alert_title}: {a.alert_time}, {a.region}";
-                    var try_alert = $"\r\n Currnet: {a.alert_title}";
+                    var alert_text = $"\r\n Current weather alert: {a.data}.";
+                    var try_alert = $"\r\n Currnet: {a.alerts1}";
                     Console.WriteLine(alert_text);
                     return alert_text;
                 }

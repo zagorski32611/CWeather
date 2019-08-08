@@ -198,7 +198,7 @@ namespace weatherapp
         public List<Alerts> data { get => alerts1; set => alerts1 = value; }
     }
 
-    [DataContract(Name = "alert_data")]
+    [DataContract(Name = "AlertData")]
     public class Alerts_Data
     {
         [Key]
