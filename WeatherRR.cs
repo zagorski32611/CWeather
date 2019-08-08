@@ -43,13 +43,13 @@ namespace weatherapp
             Console.WriteLine($"The current wind speed is: {weather.currently.windSpeed} mph with gusts up to {weather.currently.windGust} mph out of the {direction}");
             Console.WriteLine($"The nearest storm is {weather.currently.nearestStormDistance} miles away and moving to the {direction}");
             Console.WriteLine(value: $"Almanac information: \r\n Sunrise: {GetDateTime(weather.daily.data[0].sunriseTime)} \r\n Sunset: {GetDateTime(weather.daily.data[0].sunsetTime)}");
-            Console.WriteLine(value: $"Moon Phase: {weather.daily.data[0].moonPhase}");
+            Console.WriteLine(value: $"\r\n Moon Phase: {weather.daily.data[0].moonPhase}");
 
 
             // cloud cover, visibility, wind direction,  
             if (weather.alerts != null)
             {
-                Console.WriteLine(ParseAlertData(weather.alerts));
+                Console.WriteLine(ParseAlertData(weather.alerts.data));
             }
             else
             {
@@ -68,16 +68,17 @@ namespace weatherapp
             // There's probably a better way to do this...
             if (alerts.Count > 0)
             {
-                foreach (var alert in alerts)
+                foreach (var a in alerts)
                 {
-                    var alert_text = $"Current weather alert: {alert.alert_title}  {alert.region}  {alert.alert_time}  {alert.severity}";
+                    var alert_text = $"\r\n Current weather alert: {a.severity}. {a.alert_title}: {a.alert_time}, {a.region}";
+                    var try_alert = $"\r\n Currnet: {a.alert_title}";
                     Console.WriteLine(alert_text);
                     return alert_text;
                 }
             }
             else
             {
-                return "No alerts at this time";
+                return "\r\n No alerts at this time";
             }
             return "";
         }

@@ -73,6 +73,7 @@ namespace weatherapp
         public double ozone { get; set; }
 
     }
+
     [DataContract(Name = "daily")]
     public class Daily
     {
@@ -188,9 +189,21 @@ namespace weatherapp
     [DataContract(Name = "alerts")]
     public class Alerts
     {
+        public List<Alerts> alerts1 { get; set; }
+
         [Key]
         public int alert_id { get; set; }
 
+        [DataMember]
+        public List<Alerts> data { get => alerts1; set => alerts1 = value; }
+    }
+
+    [DataContract(Name = "alert_data")]
+    public class Alerts_Data
+    {
+        [Key]
+        public int alert_data_key { get; set; }
+        
         [DataMember]
         public string alert_title { get; set; }
         
@@ -201,6 +214,7 @@ namespace weatherapp
         public string severity { get; set; }
         [DataMember]
         public string alert_time { get; set; }
+        
     }
     public class Region
     {

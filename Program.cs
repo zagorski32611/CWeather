@@ -17,7 +17,7 @@ namespace weatherapp
             {
                 Console.WriteLine("\n Please Select an option:");
                 Console.WriteLine("1: Current Weather \t 2: Historical Weather (in development) \t e: exit the program");
-                var input = Console.ReadLine();
+                var input = "1"; //Console.ReadLine();
                 if (input == "1")
                 {
                     WeatherRR.ParseWeather();
