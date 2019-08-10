@@ -171,15 +171,15 @@ namespace weatherapp.Migrations
                     alert_title = table.Column<string>(nullable: true),
                     severity = table.Column<string>(nullable: true),
                     alert_time = table.Column<string>(nullable: true),
-                    WeatherDataCall_Id = table.Column<int>(nullable: true),
+                    Call_Id = table.Column<int>(nullable: true),
                     Alerts_Id1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Alerts", x => x.Alerts_Id);
                     table.ForeignKey(
-                        name: "FK_Alerts_Weather_WeatherDataCall_Id",
-                        column: x => x.WeatherDataCall_Id,
+                        name: "FK_Alerts_Weather_Call_Id",
+                        column: x => x.Call_Id,
                         principalTable: "Weather",
                         principalColumn: "Call_Id",
                         onDelete: ReferentialAction.Restrict);
@@ -191,9 +191,9 @@ namespace weatherapp.Migrations
                 column: "Alerts_Id1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Alerts_WeatherDataCall_Id",
+                name: "IX_Alerts_Call_Id",
                 table: "Alerts",
-                column: "WeatherDataCall_Id");
+                column: "Call_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Days_Daily_Id",

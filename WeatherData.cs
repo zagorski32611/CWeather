@@ -11,7 +11,7 @@ namespace weatherapp
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int weatherdata_key { get; set; }
+        public int Call_Id { get; set; }
         [DataMember]
         public double latitude { get; set; }
         [DataMember]
@@ -185,7 +185,7 @@ namespace weatherapp
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Flags_Id { get; set; }
+        public int Flag_Id { get; set; }
         [DataMember]
         public List<Sources> sources_value { get; set; }
         [DataMember]

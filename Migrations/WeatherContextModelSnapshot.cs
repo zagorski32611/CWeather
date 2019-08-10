@@ -50,11 +50,11 @@ namespace weatherapp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("weatherdata_key");
+                    b.Property<int?>("Call_Id");
 
                     b.HasKey("Alert_Id");
 
-                    b.HasIndex("weatherdata_key");
+                    b.HasIndex("Call_Id");
 
                     b.ToTable("Alerts");
                 });
@@ -218,13 +218,13 @@ namespace weatherapp.Migrations
 
             modelBuilder.Entity("weatherapp.Flags", b =>
                 {
-                    b.Property<int>("Flags_Id")
+                    b.Property<int>("Flag_Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("units");
 
-                    b.HasKey("Flags_Id");
+                    b.HasKey("Flag_Id");
 
                     b.ToTable("Flags");
                 });
@@ -252,20 +252,20 @@ namespace weatherapp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("Flags_Id");
+                    b.Property<int?>("Flag_Id");
 
                     b.Property<string>("sources_value");
 
                     b.HasKey("Sources_Id");
 
-                    b.HasIndex("Flags_Id");
+                    b.HasIndex("Flag_Id");
 
                     b.ToTable("Sources");
                 });
 
             modelBuilder.Entity("weatherapp.WeatherData", b =>
                 {
-                    b.Property<int>("weatherdata_key")
+                    b.Property<int>("Call_Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -273,7 +273,7 @@ namespace weatherapp.Migrations
 
                     b.Property<int?>("Daily_Id");
 
-                    b.Property<int?>("Flags_Id");
+                    b.Property<int?>("Flag_Id");
 
                     b.Property<double>("latitude");
 
@@ -283,13 +283,13 @@ namespace weatherapp.Migrations
 
                     b.Property<string>("timezone");
 
-                    b.HasKey("weatherdata_key");
+                    b.HasKey("Call_Id");
 
                     b.HasIndex("Currently_Id");
 
                     b.HasIndex("Daily_Id");
 
-                    b.HasIndex("Flags_Id");
+                    b.HasIndex("Flag_Id");
 
                     b.ToTable("Weather");
                 });
@@ -309,7 +309,7 @@ namespace weatherapp.Migrations
                 {
                     b.HasOne("weatherapp.WeatherData")
                         .WithMany("alerts")
-                        .HasForeignKey("weatherdata_key");
+                        .HasForeignKey("Call_Id");
                 });
 
             modelBuilder.Entity("weatherapp.Days", b =>
@@ -330,7 +330,7 @@ namespace weatherapp.Migrations
                 {
                     b.HasOne("weatherapp.Flags")
                         .WithMany("sources_value")
-                        .HasForeignKey("Flags_Id");
+                        .HasForeignKey("Flag_Id");
                 });
 
             modelBuilder.Entity("weatherapp.WeatherData", b =>
@@ -345,7 +345,7 @@ namespace weatherapp.Migrations
 
                     b.HasOne("weatherapp.Flags", "flags")
                         .WithMany()
-                        .HasForeignKey("Flags_Id");
+                        .HasForeignKey("Flag_Id");
                 });
 #pragma warning restore 612, 618
         }

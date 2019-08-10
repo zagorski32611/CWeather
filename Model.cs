@@ -22,7 +22,7 @@ namespace weatherapp
                 .HasName("Days_Id");
 
             modelBuilder.Entity<Flags>()
-                .HasKey(e => e.Flags_Id)
+                .HasKey(e => e.Flag_Id)
                 .HasName("Falgs_Id");
             
             modelBuilder.Entity<Alerts>()

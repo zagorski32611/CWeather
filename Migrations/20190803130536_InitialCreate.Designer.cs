@@ -28,7 +28,7 @@ namespace weatherapp.Migrations
 
                     b.Property<int>("Alerts_Id1");
 
-                    b.Property<int>("WeatherDataCall_Id");
+                    b.Property<int>("Call_Id");
 
                     b.Property<string>("alert_time");
 
@@ -40,7 +40,7 @@ namespace weatherapp.Migrations
 
                     b.HasIndex("Alerts_Id1");
 
-                    b.HasIndex("WeatherDataCall_Id");
+                    b.HasIndex("Call_Id");
 
                     b.ToTable("Alerts");
                 });
@@ -204,13 +204,11 @@ namespace weatherapp.Migrations
                     b.Property<int>("Flag_Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("FlagsFlag_Id");
-
                     b.Property<string>("units");
 
                     b.HasKey("Flag_Id");
 
-                    b.HasIndex("FlagsFlag_Id");
+                    b.HasIndex("Flag_Id");
 
                     b.ToTable("Flags");
                 });
@@ -226,7 +224,7 @@ namespace weatherapp.Migrations
 
                     b.Property<int>("Daily_Id");
 
-                    b.Property<int>("flagsFlag_Id");
+                    b.Property<int>("Flag_Id");
 
                     b.Property<double>("latitude");
 
@@ -242,7 +240,7 @@ namespace weatherapp.Migrations
 
                     b.HasIndex("Daily_Id");
 
-                    b.HasIndex("flagsFlag_Id");
+                    b.HasIndex("Flag_Id");
 
                     b.ToTable("Weather");
                 });
@@ -255,7 +253,7 @@ namespace weatherapp.Migrations
 
                     b.HasOne("weatherapp.WeatherData")
                         .WithMany("alerts")
-                        .HasForeignKey("WeatherDataCall_Id");
+                        .HasForeignKey("Call_Id");
                 });
 
             modelBuilder.Entity("weatherapp.Days", b =>
@@ -268,8 +266,7 @@ namespace weatherapp.Migrations
             modelBuilder.Entity("weatherapp.Flags", b =>
                 {
                     b.HasOne("weatherapp.Flags")
-                        .WithMany("sources")
-                        .HasForeignKey("FlagsFlag_Id");
+                        .WithMany("sources");
                 });
 
             modelBuilder.Entity("weatherapp.WeatherData", b =>
@@ -283,8 +280,7 @@ namespace weatherapp.Migrations
                         .HasForeignKey("Daily_Id");
 
                     b.HasOne("weatherapp.Flags", "flags")
-                        .WithMany()
-                        .HasForeignKey("flagsFlag_Id");
+                        .WithMany();
                 });
 #pragma warning restore 612, 618
         }
