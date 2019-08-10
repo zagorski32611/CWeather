@@ -49,7 +49,8 @@ namespace weatherapp
             // cloud cover, visibility, wind direction,  
             if (weather.alerts != null)
             {
-                Console.WriteLine(ParseAlertData(weather.alerts.data));
+                Console.WriteLine(ParseAlertData(weather.alerts));
+                
             }
             else
             {
@@ -58,7 +59,9 @@ namespace weatherapp
 
             using (var db = new WeatherContext())
             {
-                db.Add(weather);
+                //db.Add(weather);
+                db.Weather.Add(entity: weather);
+                db.SaveChanges();
             }
             return weather;
         }

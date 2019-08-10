@@ -2,6 +2,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace weatherapp
 {
@@ -9,6 +10,7 @@ namespace weatherapp
     public class WeatherData
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int weatherdata_key { get; set; }
         [DataMember]
         public double latitude { get; set; }
@@ -32,7 +34,8 @@ namespace weatherapp
     public class Currently
     {
         [Key]
-        public int currently_id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int OldCurrently_Id { get; set; }
         [DataMember]
         public string time { get; set; }
         [DataMember]
@@ -80,7 +83,8 @@ namespace weatherapp
         private List<Days> days1;
 
         [Key]
-        public int daily_id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Daily_Id { get; set; }
         [DataMember]
         public string summary { get; set; }
         [DataMember]
@@ -93,7 +97,8 @@ namespace weatherapp
     public class Days
     {
         [Key]
-        public int days_id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Days_Id { get; set; }
         [DataMember]
         public string time { get; set; }
         [DataMember]
@@ -179,7 +184,8 @@ namespace weatherapp
     public class Flags
     {
         [Key]
-        public int flags_id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Flags_Id { get; set; }
         [DataMember]
         public List<Sources> sources_value { get; set; }
         [DataMember]
@@ -189,19 +195,21 @@ namespace weatherapp
     [DataContract(Name = "alerts")]
     public class Alerts
     {
-        public List<Alerts> alerts1 { get; set; }
+        public List<AlertData> alerts1 { get; set; }
 
         [Key]
-        public int alert_id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Alert_Id { get; set; }
 
         [DataMember]
-        public List<Alerts> data { get => alerts1; set => alerts1 = value; }
+        public List<AlertData> data { get => alerts1; set => alerts1 = value; }
     }
 
-    [DataContract(Name = "AlertData")]
-    public class Alerts_Data
+    [DataContract(Name = "alertdata")]
+    public class AlertData
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int alert_data_key { get; set; }
         
         [DataMember]
@@ -219,14 +227,16 @@ namespace weatherapp
     public class Region
     {
         [Key]
-        public int region_id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Region_Id { get; set; }
         public string region_value{get; set;}
     }
 
     public class Sources
     {
         [Key]
-        public int sources_id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Sources_Id { get; set; }
         public string sources_value { get; set; }
     }
 }
