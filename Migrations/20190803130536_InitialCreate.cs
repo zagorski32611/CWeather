@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace weatherapp.Migrations
 {
@@ -10,7 +12,7 @@ namespace weatherapp.Migrations
                 name: "Currently",
                 columns: table => new
                 {
-                    Currently_Id = table.Column<string>(nullable: false),
+                    Currently_Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     time = table.Column<string>(nullable: true),
                     summary = table.Column<string>(nullable: true),
                     icon = table.Column<string>(nullable: true),
@@ -40,7 +42,7 @@ namespace weatherapp.Migrations
                 name: "Daily",
                 columns: table => new
                 {
-                    Daily_Id = table.Column<string>(nullable: false),
+                    Daily_Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     summary = table.Column<string>(nullable: true),
                     icon = table.Column<string>(nullable: true)
                 },
@@ -53,9 +55,9 @@ namespace weatherapp.Migrations
                 name: "Flags",
                 columns: table => new
                 {
-                    Flag_Id = table.Column<string>(nullable: false),
+                    Flag_Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     units = table.Column<string>(nullable: true),
-                    FlagsFlag_Id = table.Column<string>(nullable: true)
+                    FlagsFlag_Id = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -72,7 +74,7 @@ namespace weatherapp.Migrations
                 name: "Days",
                 columns: table => new
                 {
-                    Days_Id = table.Column<string>(nullable: false),
+                    Days_Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     time = table.Column<string>(nullable: true),
                     summary = table.Column<string>(nullable: true),
                     icon = table.Column<string>(nullable: true),
@@ -112,7 +114,7 @@ namespace weatherapp.Migrations
                     apparentTemperatureMinTime = table.Column<string>(nullable: true),
                     apparentTemperatureMax = table.Column<double>(nullable: false),
                     apparentTemperatureMaxTime = table.Column<string>(nullable: true),
-                    Daily_Id = table.Column<string>(nullable: true)
+                    Daily_Id = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -129,13 +131,13 @@ namespace weatherapp.Migrations
                 name: "Weather",
                 columns: table => new
                 {
-                    Call_Id = table.Column<string>(nullable: false),
+                    Call_Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     latitude = table.Column<double>(nullable: false),
                     longitude = table.Column<double>(nullable: false),
                     timezone = table.Column<string>(nullable: true),
-                    Currently_Id = table.Column<string>(nullable: true),
-                    Daily_Id = table.Column<string>(nullable: true),
-                    flagsFlag_Id = table.Column<string>(nullable: true),
+                    Currently_Id = table.Column<int>(nullable: true),
+                    Daily_Id = table.Column<int>(nullable: true),
+                    flagsFlag_Id = table.Column<int>(nullable: true),
                     offset = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -165,22 +167,16 @@ namespace weatherapp.Migrations
                 name: "Alerts",
                 columns: table => new
                 {
-                    Alerts_Id = table.Column<string>(nullable: false),
+                    Alerts_Id = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     alert_title = table.Column<string>(nullable: true),
                     severity = table.Column<string>(nullable: true),
                     alert_time = table.Column<string>(nullable: true),
-                    Alerts_Id1 = table.Column<string>(nullable: true),
-                    WeatherDataCall_Id = table.Column<string>(nullable: true)
+                    WeatherDataCall_Id = table.Column<int>(nullable: true),
+                    Alerts_Id1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Alerts", x => x.Alerts_Id);
-                    table.ForeignKey(
-                        name: "FK_Alerts_Alerts_Alerts_Id1",
-                        column: x => x.Alerts_Id1,
-                        principalTable: "Alerts",
-                        principalColumn: "Alerts_Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Alerts_Weather_WeatherDataCall_Id",
                         column: x => x.WeatherDataCall_Id,
@@ -225,6 +221,7 @@ namespace weatherapp.Migrations
                 column: "flagsFlag_Id");
         }
 
+/* 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
@@ -245,5 +242,6 @@ namespace weatherapp.Migrations
             migrationBuilder.DropTable(
                 name: "Flags");
         }
+*/
     }
 }

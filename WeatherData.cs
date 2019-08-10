@@ -35,7 +35,7 @@ namespace weatherapp
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int OldCurrently_Id { get; set; }
+        public int Currently_Id { get; set; }
         [DataMember]
         public string time { get; set; }
         [DataMember]
@@ -203,6 +203,9 @@ namespace weatherapp
 
         [DataMember]
         public List<AlertData> data { get => alerts1; set => alerts1 = value; }
+
+        [DataMember]
+        public int Alerts_Id1 { get; set; }
     }
 
     [DataContract(Name = "alertdata")]
@@ -210,7 +213,7 @@ namespace weatherapp
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int alert_data_key { get; set; }
+        public int alerts_id1 { get; set; }
         
         [DataMember]
         public string alert_title { get; set; }

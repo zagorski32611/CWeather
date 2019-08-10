@@ -23,12 +23,12 @@ namespace weatherapp.Migrations
 
             modelBuilder.Entity("weatherapp.Alerts", b =>
                 {
-                    b.Property<string>("Alerts_Id")
+                    b.Property<int>("Alerts_Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Alerts_Id1");
+                    b.Property<int>("Alerts_Id1");
 
-                    b.Property<string>("WeatherDataCall_Id");
+                    b.Property<int>("WeatherDataCall_Id");
 
                     b.Property<string>("alert_time");
 
@@ -47,7 +47,7 @@ namespace weatherapp.Migrations
 
             modelBuilder.Entity("weatherapp.Currently", b =>
                 {
-                    b.Property<string>("Currently_Id")
+                    b.Property<int>("Currently_Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<double>("apparentTemperature");
@@ -95,7 +95,7 @@ namespace weatherapp.Migrations
 
             modelBuilder.Entity("weatherapp.Daily", b =>
                 {
-                    b.Property<string>("Daily_Id")
+                    b.Property<int>("Daily_Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("icon");
@@ -109,10 +109,10 @@ namespace weatherapp.Migrations
 
             modelBuilder.Entity("weatherapp.Days", b =>
                 {
-                    b.Property<string>("Days_Id")
+                    b.Property<int>("Days_Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Daily_Id");
+                    b.Property<int>("Daily_Id");
 
                     b.Property<double>("apparentTemperatureHigh");
 
@@ -201,10 +201,10 @@ namespace weatherapp.Migrations
 
             modelBuilder.Entity("weatherapp.Flags", b =>
                 {
-                    b.Property<string>("Flag_Id")
+                    b.Property<int>("Flag_Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("FlagsFlag_Id");
+                    b.Property<int>("FlagsFlag_Id");
 
                     b.Property<string>("units");
 
@@ -217,14 +217,16 @@ namespace weatherapp.Migrations
 
             modelBuilder.Entity("weatherapp.WeatherData", b =>
                 {
-                    b.Property<string>("Call_Id")
+                    b.Property<int>("Call_Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Currently_Id");
+                    b.Property<int>("Currently_Id");
 
-                    b.Property<string>("Daily_Id");
+                    b.Property<int>("Alerts_Id1");
 
-                    b.Property<string>("flagsFlag_Id");
+                    b.Property<int>("Daily_Id");
+
+                    b.Property<int>("flagsFlag_Id");
 
                     b.Property<double>("latitude");
 
