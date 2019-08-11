@@ -6,6 +6,15 @@ namespace weatherapp
     public class WeatherContext : DbContext
     {
         public DbSet<WeatherData> Weather { get; set; }
+        
+        public DbSet<Currently> Currently {get; set; }
+
+        public DbSet<Alerts> Alerts { get; set; }
+
+        public DbSet<Days> Days { get; set; }
+
+        public DbSet<Daily> Daily {get; set;}
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

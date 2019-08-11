@@ -12,20 +12,20 @@ namespace weatherapp
             bool exitCode = false;
             
             Console.WriteLine("Welcome to the Weather App.");
+            Console.WriteLine(System.Environment.NewLine);
 
             while (!exitCode)
             {
                 Console.WriteLine("\n Please Select an option:");
                 Console.WriteLine("1: Current Weather \t 2: Historical Weather (in development) \t e: exit the program");
-                var input = "1"; //Console.ReadLine();
+                var input =  "2";//Console.ReadLine();
                 if (input == "1")
                 {
                     WeatherRR.ParseWeather();
                 }
                 else if (input == "2")
                 {  
-                   //await HistoricalData.highestTemp();
-                   Console.WriteLine("This is still under development");
+                   HistoricalData.Linq101();
                 }
                 else if (input == "e")
                 {

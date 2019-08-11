@@ -13,6 +13,31 @@ namespace weatherapp
             Console.WriteLine($"{highestTemp()}");
         }
 
+
+        public static string Linq101()
+        {
+            using (var db = new WeatherContext())
+            {
+                var tempratures = db.Currently
+                    .Where(t => t.apparentTemperature >= 70);
+
+                foreach (var loopvar1 in tempratures)
+                {
+                    Console.WriteLine($"{loopvar1.apparentTemperature}, {WeatherRR.GetDateTime(loopvar1.time)}");
+                }
+                return tempratures.ToString();
+                //var saved_days = db.Weather.First().currently.apparentTemperature;
+
+                //Console.WriteLine($"{saved_days}");    
+                    
+                //return saved_days.ToString();
+            }
+        }
+
+
+
+
+
         public static List<char> ReadData()
         {
             var weather = new WeatherData();
