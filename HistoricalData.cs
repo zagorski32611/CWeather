@@ -8,32 +8,84 @@ namespace weatherapp
 {
     class HistoricalData
     {
-        public void ReadHistoricalData()
+        public static void HistoricalDataMenu()
         {
-            Console.WriteLine($"{highestTemp()}");
-        }
+            bool exitCode = false;
 
+            Console.WriteLine("Historical Data Menu \r\n Please select an option.");
 
-        public static string Linq101()
-        {
-            using (var db = new WeatherContext())
+            while (!exitCode)
             {
-                var tempratures = db.Currently
-                    .Where(t => t.apparentTemperature >= 70);
-
-                foreach (var loopvar1 in tempratures)
+                Console.WriteLine("\n Please Select an option:");
+                Console.WriteLine("1: Temprature Search \t 2: Another Report \t r: Return to Main Menu \t e: exit the program");
+                var input = Console.ReadLine();
+                if (input == "1")
                 {
-                    Console.WriteLine($"{loopvar1.apparentTemperature}, {WeatherRR.GetDateTime(loopvar1.time)}");
+                    HistoricalData.TempratureSearch();
                 }
-                return tempratures.ToString();
-                //var saved_days = db.Weather.First().currently.apparentTemperature;
+                else if (input == "2")
+                {
+                    Console.WriteLine("Still working on it");
+                }
+                else if (input == "r")
+                {
+                    Console.WriteLine("Returning");
 
-                //Console.WriteLine($"{saved_days}");    
-                    
-                //return saved_days.ToString();
+                }
+                else if (input == "e")
+                {
+                    Console.WriteLine("exiting...");
+                    exitCode = true;
+                }
+                else
+                {
+                    Console.WriteLine("Eh, I don't recognize that option \n");
+                }
             }
         }
 
+
+        public static string TempratureSearch()
+        {
+            Console.WriteLine("Search for high tempratures above or below your input. Enter in the temp you'd like to search for, then choose above or below");
+
+            Console.WriteLine("Enter temprature as an intger");
+
+            var searchTemp = Console.ReadLine();
+
+            Console.WriteLine("higher or lower?");
+
+            var higherLower = Console.ReadLine();
+
+            using (var db = new WeatherContext())
+            {
+                if (higherLower == "higher")
+                {
+                    var highTempratures = db.Days
+                        .Where(d => d.temperatureMax >= Convert.ToDouble(searchTemp));
+
+                    Console.WriteLine($"The high temps above {searchTemp} are:");
+
+                    foreach (var temps in highTempratures)
+                    {
+                        Console.WriteLine($"High: {temps.temperatureMax} Date: {WeatherRR.GetDateTime(temps.temperatureMaxTime)}");
+                    }
+                }
+                else if (higherLower == "lower")
+                {
+                    var lowTempratures = db.Days
+                        .Where(d => d.temperatureMax <= Convert.ToDouble(searchTemp));
+
+                    Console.WriteLine($"The high temps below {searchTemp} are:");
+
+                    foreach (var temps in lowTempratures)
+                    {
+                        Console.WriteLine($"High: {temps.temperatureMax} Date: {WeatherRR.GetDateTime(temps.temperatureMaxTime)}");
+                    }
+                }
+                return "Found all";
+            }
+        }
 
 
 
@@ -42,7 +94,7 @@ namespace weatherapp
         {
             var weather = new WeatherData();
 
-            var currently = weather.currently.time                          
+            var currently = weather.currently.time
                                     .Where(s => s.ToString() != DateTime.Now.ToString())
                                     .ToList();
             return currently;
@@ -50,7 +102,7 @@ namespace weatherapp
 
         public List<Days> highestTemp()
         {
-            
+
             using (var db = new WeatherContext())
             {
                 return (
@@ -58,7 +110,7 @@ namespace weatherapp
                     from i in tp.daily.data
                     where i.apparentTemperatureHigh >= 75
                     select i
-                ).ToList(); 
+                ).ToList();
             }
         }
 

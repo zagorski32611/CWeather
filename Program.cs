@@ -7,10 +7,10 @@ namespace weatherapp
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             bool exitCode = false;
-            
+
             Console.WriteLine("Welcome to the Weather App.");
             Console.WriteLine(System.Environment.NewLine);
 
@@ -18,14 +18,14 @@ namespace weatherapp
             {
                 Console.WriteLine("\n Please Select an option:");
                 Console.WriteLine("1: Current Weather \t 2: Historical Weather (in development) \t e: exit the program");
-                var input =  "2";//Console.ReadLine();
+                var input = Console.ReadLine();
                 if (input == "1")
                 {
                     WeatherRR.ParseWeather();
                 }
                 else if (input == "2")
-                {  
-                   HistoricalData.Linq101();
+                {
+                    HistoricalData.HistoricalDataMenu();
                 }
                 else if (input == "e")
                 {
@@ -36,7 +36,7 @@ namespace weatherapp
                 {
                     Console.WriteLine("Eh, I don't recognize that option \n");
                 }
-            }   
+            }
         }
     }
 }
