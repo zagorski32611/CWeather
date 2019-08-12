@@ -88,8 +88,6 @@ namespace weatherapp
         }
 
 
-
-
         public static List<char> ReadData()
         {
             var weather = new WeatherData();
