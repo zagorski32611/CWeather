@@ -31,7 +31,6 @@ namespace weatherapp
             }
         }
 
-
         public static WeatherData ParseWeather()
         {
             var weather = CallDarkSky().Result;

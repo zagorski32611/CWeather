@@ -10,7 +10,7 @@ namespace weatherapp
         public static void Main(string[] args)
         {
             bool exitCode = false;
-
+            
             Console.WriteLine("Welcome to the Weather App.");
             Console.WriteLine(System.Environment.NewLine);
 
@@ -24,6 +24,10 @@ namespace weatherapp
                     WeatherRR.ParseWeather();
                 }
                 else if (input == "2")
+                {
+                        
+                }
+                else if (input == "3")
                 {
                     HistoricalData.HistoricalDataMenu();
                 }
