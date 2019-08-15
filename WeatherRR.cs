@@ -85,7 +85,7 @@ namespace weatherapp
             return "";
         }
 
-        public static string GetDirections(double number)
+        private static string GetDirections(double number)
         {
             if (22.5 < number || number <= 67.5)
             {

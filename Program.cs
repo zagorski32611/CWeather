@@ -14,6 +14,9 @@ namespace weatherapp
             Console.WriteLine("Welcome to the Weather App.");
             Console.WriteLine(System.Environment.NewLine);
 
+            WeatherRR.ParseWeather();
+            WeatherRR.GetDirections();
+
             while (!exitCode)
             {
                 Console.WriteLine("\n Please Select an option:");
@@ -21,7 +24,7 @@ namespace weatherapp
                 var input = Console.ReadLine();
                 if (input == "1")
                 {
-                    WeatherRR.ParseWeather();
+                    
                 }
                 else if (input == "2")
                 {
