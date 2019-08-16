@@ -11,28 +11,23 @@ namespace weatherapp
         {
             bool exitCode = false;
             
-            Console.WriteLine("Welcome to the Weather App.");
+            Console.WriteLine("Welcome to the Weather App. Here is the current weather:");
             Console.WriteLine(System.Environment.NewLine);
 
             WeatherRR.ParseWeather();
-            WeatherRR.GetDirections();
-
+            
             while (!exitCode)
             {
                 Console.WriteLine("\n Please Select an option:");
-                Console.WriteLine("1: Current Weather \t 2: 7 Day Forecast \t 3: Historical Weather (in development) \t e: exit the program");
-                var input = Console.ReadLine();
+                Console.WriteLine("1: 7 Day Forecast \t 2: Historical Weather (in development) \t e: exit the program");
+                var input = "1"; //Console.ReadLine();
                 if (input == "1")
                 {
-                    
+                   Forecast.Next7Days(); 
                 }
                 else if (input == "2")
                 {
-                    Forecast.Next7Days();       
-                }
-                else if (input == "3")
-                {
-                    HistoricalData.HistoricalDataMenu();
+                    HistoricalData.HistoricalDataMenu();       
                 }
                 else if (input == "e")
                 {

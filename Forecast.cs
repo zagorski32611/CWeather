@@ -13,14 +13,15 @@ namespace weatherapp
             using (var db = new WeatherContext())
             {
                 var sevenDays = (from d in db.Days
-                .OrderByDescending (d => d.Days_Id)
+                .OrderBy (d => d.Days_Id)
                 select d).Take(7);
 
                 Console.WriteLine($"The next seven days:\r\n");
 
                 foreach(var day in sevenDays)
                 {
-                    Console.WriteLine($"{WeatherRR.GetDateTime(day.time)} \r\n {day.apparentTemperatureHigh} \r\n {day.apparentTemperatureLow}");
+                    Console.WriteLine($"{WeatherRR.GetDateTime(day.time).DayOfWeek}, {WeatherRR.GetDateTime(day.time)} \r\n High: {day.apparentTemperatureHigh} \r\n Low: {day.apparentTemperatureLow}");
+                    
                 } 
             }
             return "";
