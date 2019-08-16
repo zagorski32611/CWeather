@@ -20,7 +20,7 @@ namespace weatherapp
             {
                 Console.WriteLine("\n Please Select an option:");
                 Console.WriteLine("1: 7 Day Forecast \t 2: Historical Weather (in development) \t e: exit the program");
-                var input = "1"; //Console.ReadLine();
+                var input = Console.ReadLine();
                 if (input == "1")
                 {
                    Forecast.Next7Days(); 
