@@ -11,6 +11,8 @@ namespace weatherapp
 
         public DbSet<Alerts> Alerts { get; set; }
 
+        public DbSet<AlertData> AlertDatas { get; set; }
+
         public DbSet<Days> Days { get; set; }
 
         public DbSet<Daily> Daily {get; set;}
@@ -35,7 +37,7 @@ namespace weatherapp
                 .HasName("Falgs_Id");
             
             modelBuilder.Entity<Alerts>()
-                .HasKey(f => f.Alert_Id)
+                .HasKey(f => f.Alerts_Id)
                 .HasName("Alerts_Id");
             
             modelBuilder.Entity<AlertData>()

@@ -199,7 +199,7 @@ namespace weatherapp
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Alert_Id { get; set; }
+        public int Alerts_Id { get; set; }
 
         [DataMember]
         public List<AlertData> data { get => alerts1; set => alerts1 = value; }
