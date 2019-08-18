@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using weatherapp;
 
 namespace weatherapp.Migrations
 {
     [DbContext(typeof(WeatherContext))]
-    partial class WeatherContextModelSnapshot : ModelSnapshot
+    [Migration("20190818103417_AlertData")]
+    partial class AlertData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

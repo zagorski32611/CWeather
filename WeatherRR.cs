@@ -35,7 +35,7 @@ namespace weatherapp
         {
             var weather = CallDarkSky().Result;
             var direction = GetDirections(weather.currently.windBearing);
-            
+
             Console.WriteLine($"The current temprature is {weather.currently.temperature} with a dew point of {weather.currently.dewPoint} and humidity of {weather.currently.humidity}");
             Console.WriteLine($"Daily Summary: {weather.daily.summary}");
             Console.WriteLine($"Current Precip Probability: {weather.currently.precipProbability}");
@@ -49,7 +49,7 @@ namespace weatherapp
             if (weather.alerts != null)
             {
                 Console.WriteLine(ParseAlertData(weather.alerts));
-                
+
             }
             else
             {
@@ -70,13 +70,7 @@ namespace weatherapp
             // There's probably a better way to do this...
             if (alerts.Count > 0)
             {
-                foreach (var a in alerts)
-                {
-                    var alert_text = $"\r\n Current weather alert: {a.data}.";
-                    var try_alert = $"\r\n Current: {a.alerts1}";
-                    Console.WriteLine(alert_text);
-                    return alert_text;
-                }
+                AlertLoop(alerts);
             }
             else
             {
@@ -84,6 +78,19 @@ namespace weatherapp
             }
             return "";
         }
+
+        private static void AlertLoop(List<Alerts> alertdata)
+        {
+            var counter = alertdata.Count;
+            foreach (var i in alertdata)
+            {
+                for (var b = 1; b < counter; b++)
+                {
+                    Console.WriteLine($"{i.data[b].alert_title}");
+                }
+            }
+        }
+
 
         private static string GetDirections(double number)
         {
@@ -133,7 +140,7 @@ namespace weatherapp
         {
             DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, kind: System.DateTimeKind.Utc);
             long longTime = long.Parse(unixTimeStamp);
-            long unixTimeStampInTicks = (long) (longTime * TimeSpan.TicksPerSecond);
+            long unixTimeStampInTicks = (long)(longTime * TimeSpan.TicksPerSecond);
 
             DateTime dateTime = new DateTime(ticks: unixStart.Ticks + unixTimeStampInTicks, kind: System.DateTimeKind.Utc);
             return dateTime.ToLocalTime();
