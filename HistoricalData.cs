@@ -118,21 +118,3 @@ namespace weatherapp
         }
     }
 }
-
-/*
-            //var daily_weather = 
-            
-            // Define the query expression.
-            
-            var tempratures =
-                 (from temps in db.Weather
-                    from x in temps.daily.data
-                        where x.apparentTemperatureHigh >= 0
-                        select temps).ToList();
-
-            foreach (var i in tempratures)
-            {
-                Console.WriteLine($"{i}");
-            }
-            return tempratures;
-*/

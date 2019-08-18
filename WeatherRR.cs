@@ -31,7 +31,6 @@ namespace weatherapp
             }
         }
 
-
         public static WeatherData ParseWeather()
         {
             var weather = CallDarkSky().Result;
@@ -74,7 +73,7 @@ namespace weatherapp
                 foreach (var a in alerts)
                 {
                     var alert_text = $"\r\n Current weather alert: {a.data}.";
-                    var try_alert = $"\r\n Currnet: {a.alerts1}";
+                    var try_alert = $"\r\n Current: {a.alerts1}";
                     Console.WriteLine(alert_text);
                     return alert_text;
                 }
@@ -86,7 +85,7 @@ namespace weatherapp
             return "";
         }
 
-        public static string GetDirections(double number)
+        private static string GetDirections(double number)
         {
             if (22.5 < number || number <= 67.5)
             {
