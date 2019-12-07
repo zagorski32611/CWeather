@@ -103,6 +103,7 @@ namespace weatherapp
 
             using (var db = new WeatherContext())
             {
+
                 return (
                     from tp in db.Weather
                     from i in tp.daily.data
@@ -111,6 +112,13 @@ namespace weatherapp
                 ).ToList();
             }
         }
+
+
+        public List<Days> manualSortAlgo(List<Days> days)
+        {
+            
+        }
+
 
         private static object await(IQueryable<WeatherData> queryable)
         {
