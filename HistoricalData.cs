@@ -10,36 +10,60 @@ namespace weatherapp
     {
         public static void HistoricalDataMenu()
         {
-            bool exitCode = false;
-
-            Console.WriteLine("Historical Data Menu \r\n Please select an option.");
-
-            while (!exitCode)
+            using (var db = new WeatherContext())
             {
-                Console.WriteLine("\n Please Select an option:");
-                Console.WriteLine("1: Temprature Search \t 2: Another Report \t r: Return to Main Menu \t e: exit the program");
-                var input = Console.ReadLine();
-                if (input == "1")
-                {
-                    HistoricalData.TempratureSearch();
-                }
-                else if (input == "2")
-                {
-                    Console.WriteLine("Still working on it");
-                }
-                else if (input == "r")
-                {
-                    Console.WriteLine("Returning");
+                bool exitCode = false;
 
-                }
-                else if (input == "e")
+                Console.WriteLine("Historical Data Menu \r\n Please select an option.");
+
+                while (!exitCode)
                 {
-                    Console.WriteLine("exiting...");
-                    exitCode = true;
-                }
-                else
-                {
-                    Console.WriteLine("Eh, I don't recognize that option \n");
+                    Console.WriteLine("\n Please Select an option:");
+                    Console.WriteLine("1: Temprature Search \t 2: Another Report \t 3: Insertion Sort algorithm \t r: Return to Main Menu \t e: exit the program");
+                    var input = Console.ReadLine();
+                    if (input == "1")
+                    {
+                        HistoricalData.TempratureSearch();
+                    }
+                    else if (input == "2")
+                    {
+                        Console.WriteLine("Still working on it");
+                    }
+                    else if (input == "3")
+                    {
+                        Console.WriteLine("The insertion sort");
+                        
+                        List<Days> unsortedDays = db.Days.ToList();
+
+                        List<Days> sortedDays = HistoricalData.manualSortAlgo(unsortedDays);
+
+                        //Console.WriteLine($"Unsorted -- Lowest: {unsortedDays[0].apparentTemperatureHigh}, Highest: {unsortedDays}");
+
+                        Console.WriteLine($"Sorted -- Lowest: {sortedDays.First().apparentTemperatureHigh}, Highest: {sortedDays.Last().apparentTemperatureHigh}");
+                        
+                        //foreach (var day in unsortedDays)
+                        //{
+                        //    Console.WriteLine($"Temprature: {day.temperatureHigh} \n {day.time}");
+                        //}
+                        //foreach (var day in sortedDays)
+                        //{
+                        //    Console.WriteLine($"Temprature: {day.temperatureHigh} \n {day.time}");
+                        //}
+                    }
+                    else if (input == "r")
+                    {
+                        Console.WriteLine("Returning");
+
+                    }
+                    else if (input == "e")
+                    {
+                        Console.WriteLine("exiting...");
+                        exitCode = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Eh, I don't recognize that option \n");
+                    }
                 }
             }
         }
@@ -98,19 +122,71 @@ namespace weatherapp
             return currently;
         }
 
-        public List<Days> highestTemp()
+        public void highestTemp()
         {
 
             using (var db = new WeatherContext())
             {
-                return (
+
+                List<Days> days = (
                     from tp in db.Weather
                     from i in tp.daily.data
-                    where i.apparentTemperatureHigh >= 75
                     select i
                 ).ToList();
             }
         }
+
+        public static List<Days> manualSortAlgo(List<Days> days)
+        {
+            // This is an insertion sort algorithm.
+            double tempCompare;
+            
+            int listSize = days.Count();
+
+            for(int forSearchIndex = 1; forSearchIndex <= listSize -1; forSearchIndex++)
+            {
+                tempCompare = days[forSearchIndex].apparentTemperatureHigh;
+
+                int whileSearchIndex = forSearchIndex;
+
+                while(whileSearchIndex > 0 && days[whileSearchIndex - 1].apparentTemperatureHigh >= tempCompare)
+                {
+                    days[whileSearchIndex] = days[whileSearchIndex - 1];
+                    whileSearchIndex -= 1;
+                }
+                days[whileSearchIndex].apparentTemperatureHigh = tempCompare;
+            }
+            return days;
+        }
+
+
+        public void InsertionSort(int[] arr)
+        {
+            int inner;
+            int temp;
+            int arrSize = arr.GetLength(0);
+
+            for (int outer = 1; outer <= arrSize - 1; outer++)
+            {
+                temp = arr[outer];
+                inner = outer;
+                while (arr[inner - 1] >= temp)
+                {
+                    arr[inner] = arr[inner - 1];
+                    inner -= 1;
+                }
+                arr[inner] = temp;
+            }
+        }
+
+
+
+
+
+
+
+
+
 
         private static object await(IQueryable<WeatherData> queryable)
         {

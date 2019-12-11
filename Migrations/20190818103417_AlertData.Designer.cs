@@ -15,7 +15,7 @@ namespace weatherapp.Migrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
+            #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
@@ -23,13 +23,13 @@ namespace weatherapp.Migrations
 
             modelBuilder.Entity("weatherapp.AlertData", b =>
                 {
-                    b.Property<int>("alerts_id1")
+                    b.Property<int>("alert_data_id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("Alerts_Id");
 
-                    b.Property<int?>("Alerts_Id1");
+                    b.Property<int?>("alert_data_id");
 
                     b.Property<string>("alert_time");
 
@@ -37,16 +37,21 @@ namespace weatherapp.Migrations
 
                     b.Property<string>("severity");
 
-                    b.HasKey("alerts_id1")
-                        .HasName("Alerts_Id1");
+                    b.HasKey("alert_data_id")
+                        .HasName("alert_data_id");
 
                     b.HasIndex("Alerts_Id");
 
-                    b.HasIndex("Alerts_Id1");
+                    //b.HasIndex("Alerts_Id1");
 
                     b.ToTable("AlertDatas");
-                });
-
+                }
+            );
+        }
+    }
+}
+                
+/*
             modelBuilder.Entity("weatherapp.Alerts", b =>
                 {
                     b.Property<int>("Alerts_Id")
@@ -333,7 +338,7 @@ namespace weatherapp.Migrations
                 {
                     b.HasOne("weatherapp.AlertData")
                         .WithMany("region")
-                        .HasForeignKey("AlertDataalerts_id1");
+                        .HasForeignKey("AlertData_id1");
                 });
 
             modelBuilder.Entity("weatherapp.Sources", b =>
@@ -359,5 +364,8 @@ namespace weatherapp.Migrations
                 });
 #pragma warning restore 612, 618
         }
+        
     }
+    
 }
+*/
