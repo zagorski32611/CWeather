@@ -26,7 +26,6 @@ C:/Users/jzagorski/Documents/dotnetcore/CWeather/CWeather/obj/Debug/netcoreapp2.
 /home/joe/development/netcore/weatherapp/weatherapp/bin/Debug/netcoreapp2.2/weatherapp.dll
 /home/joe/development/netcore/weatherapp/weatherapp/bin/Debug/netcoreapp2.2/weatherapp.pdb
 /home/joe/development/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.csprojAssemblyReference.cache
-/home/joe/development/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.csproj.CoreCompileInputs.cache
 /home/joe/development/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.AssemblyInfoInputs.cache
 /home/joe/development/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.AssemblyInfo.cs
 /home/joe/development/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.dll
