@@ -10,7 +10,7 @@ namespace weatherapp.Migrations
             name: "AlertData",
             columns: table => new
             {
-                alerts_id1 = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                alerts_id1 = table.Column<int>(nullable: false).Annotation("SqlServer:ValueGenerationStrategy", "IdentityColumn"),
                 alert_title = table.Column<string>(nullable: true),
                 region = table.Column<string>(nullable: true),
                 severity = table.Column<string>(nullable: true),
@@ -21,11 +21,11 @@ namespace weatherapp.Migrations
                 table.PrimaryKey("PK_Alerts_Id1", x => x.alerts_id1);
             });
 
-            migrationBuilder.AddColumn<int>(
-                name: "Alerts_Id1",
-                table: "Alerts",
-                nullable: false,
-                defaultValue: 0);
+            //migrationBuilder.AddColumn<int>(
+            //    name: "Alerts_Id1",
+            //    table: "Alerts",
+            //    nullable: false,
+            //    defaultValue: 0);
 
 
             migrationBuilder.AddPrimaryKey(

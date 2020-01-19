@@ -4836,7 +4836,7 @@
       ]
     },
     "System.Xml.XmlSerializer/4.3.0": {
-      "sha512": "VShQJhOxgD/5M2Z1IWm1vMaSqlbjo1zdFf8H7Ahte6bTvSUhUko/gDpAVVhGgGgTDeue4QyNg1fu1Zz2GKSEuQ==",
+      "sha512": "MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "type": "package",
       "path": "system.xml.xmlserializer/4.3.0",
       "files": [
@@ -4923,11 +4923,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj",
+      "projectUniqueName": "/home/joe/development/netcore/weatherapp/weatherapp/weatherapp.csproj",
       "projectName": "weatherapp",
-      "projectPath": "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj",
+      "projectPath": "/home/joe/development/netcore/weatherapp/weatherapp/weatherapp.csproj",
       "packagesPath": "/home/joe/.nuget/packages/",
-      "outputPath": "/home/joe/netcore/weatherapp/weatherapp/obj/",
+      "outputPath": "/home/joe/development/netcore/weatherapp/weatherapp/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -4983,10 +4983,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
       }
     }
   }

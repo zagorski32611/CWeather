@@ -20,3 +20,13 @@ C:/Users/jzagorski/Documents/dotnetcore/CWeather/CWeather/obj/Debug/netcoreapp2.
 C:/Users/jzagorski/Documents/dotnetcore/CWeather/CWeather/obj/Debug/netcoreapp2.2/weatherapp.AssemblyInfo.cs
 C:/Users/jzagorski/Documents/dotnetcore/CWeather/CWeather/obj/Debug/netcoreapp2.2/weatherapp.dll
 C:/Users/jzagorski/Documents/dotnetcore/CWeather/CWeather/obj/Debug/netcoreapp2.2/weatherapp.pdb
+/home/joe/development/netcore/weatherapp/weatherapp/bin/Debug/netcoreapp2.2/weatherapp.deps.json
+/home/joe/development/netcore/weatherapp/weatherapp/bin/Debug/netcoreapp2.2/weatherapp.runtimeconfig.json
+/home/joe/development/netcore/weatherapp/weatherapp/bin/Debug/netcoreapp2.2/weatherapp.runtimeconfig.dev.json
+/home/joe/development/netcore/weatherapp/weatherapp/bin/Debug/netcoreapp2.2/weatherapp.dll
+/home/joe/development/netcore/weatherapp/weatherapp/bin/Debug/netcoreapp2.2/weatherapp.pdb
+/home/joe/development/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.csprojAssemblyReference.cache
+/home/joe/development/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.AssemblyInfoInputs.cache
+/home/joe/development/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.AssemblyInfo.cs
+/home/joe/development/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.dll
+/home/joe/development/netcore/weatherapp/weatherapp/obj/Debug/netcoreapp2.2/weatherapp.pdb

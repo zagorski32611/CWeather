@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj": {}
+    "/home/joe/development/netcore/weatherapp/weatherapp/weatherapp.csproj": {}
   },
   "projects": {
-    "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj": {
+    "/home/joe/development/netcore/weatherapp/weatherapp/weatherapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj",
+        "projectUniqueName": "/home/joe/development/netcore/weatherapp/weatherapp/weatherapp.csproj",
         "projectName": "weatherapp",
-        "projectPath": "/home/joe/netcore/weatherapp/weatherapp/weatherapp.csproj",
+        "projectPath": "/home/joe/development/netcore/weatherapp/weatherapp/weatherapp.csproj",
         "packagesPath": "/home/joe/.nuget/packages/",
-        "outputPath": "/home/joe/netcore/weatherapp/weatherapp/obj/",
+        "outputPath": "/home/joe/development/netcore/weatherapp/weatherapp/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -67,10 +67,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
         }
       }
     }
