@@ -45,14 +45,15 @@ namespace weatherapp
             Console.WriteLine(value: $"\r\n Moon Phase: {weather.daily.data[0].moonPhase}");
 
 
-            // cloud cover, visibility, wind direction,  
-            if (weather.alerts is null)
+            // I was learning how to use a switch statement. There's no real reason for using it:
+            switch (weather.alerts)
             {
-                Console.WriteLine("No alerts at this time");
-            }
-            else
-            {
-                Console.WriteLine(ParseAlertData(weather.alerts));
+                case null:
+                    Console.WriteLine("No alerts at this time");
+                    break;
+                default:
+                    Console.WriteLine(ParseAlertData(weather.alerts));
+                    break;
             }
 
             using (var db = new WeatherContext())
