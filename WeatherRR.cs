@@ -46,20 +46,18 @@ namespace weatherapp
 
 
             // cloud cover, visibility, wind direction,  
-            if (weather.alerts != null)
+            if (weather.alerts is null)
             {
-                Console.WriteLine(ParseAlertData(weather.alerts));
-
+                Console.WriteLine("No alerts at this time");
             }
             else
             {
-                Console.WriteLine("No alerts at this time");
+                Console.WriteLine(ParseAlertData(weather.alerts));
             }
 
             using (var db = new WeatherContext())
             {
-                //db.Add(weather);
-                db.Weather.Add(entity: weather);
+                db.Weather.Add(weather);
                 db.SaveChanges();
             }
             return weather;
@@ -90,7 +88,6 @@ namespace weatherapp
                 }
             }
         }
-
 
         private static string GetDirections(double number)
         {

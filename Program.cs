@@ -11,7 +11,7 @@ namespace weatherapp
         {
             bool exitCode = false;
             
-            Console.WriteLine("Welcome to the Weather App. Here is the current weather:");
+            
             Console.WriteLine(System.Environment.NewLine);
 
             WeatherRR.ParseWeather();

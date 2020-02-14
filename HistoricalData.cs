@@ -37,18 +37,19 @@ namespace weatherapp
 
                         List<Days> sortedDays = HistoricalData.manualSortAlgo(unsortedDays);
 
-                        //Console.WriteLine($"Unsorted -- Lowest: {unsortedDays[0].apparentTemperatureHigh}, Highest: {unsortedDays}");
-
+                        
                         Console.WriteLine($"Sorted -- Lowest: {sortedDays.First().apparentTemperatureHigh}, Highest: {sortedDays.Last().apparentTemperatureHigh}");
                         
-                        //foreach (var day in unsortedDays)
-                        //{
-                        //    Console.WriteLine($"Temprature: {day.temperatureHigh} \n {day.time}");
-                        //}
-                        //foreach (var day in sortedDays)
-                        //{
-                        //    Console.WriteLine($"Temprature: {day.temperatureHigh} \n {day.time}");
-                        //}
+                        foreach (var day in unsortedDays)
+                        {
+                            Console.WriteLine($"Temprature: {day.temperatureHigh} \n {day.time}");
+                        }
+                        
+                        
+                        foreach (var day in sortedDays)
+                        {
+                            Console.WriteLine($"Temprature: {day.temperatureHigh} \n {day.time}");
+                        }
                     }
                     else if (input == "r")
                     {

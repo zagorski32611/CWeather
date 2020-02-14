@@ -203,9 +203,6 @@ namespace weatherapp
 
         [DataMember]
         public List<AlertData> data { get => alerts1; set => alerts1 = value; }
-
-        //[DataMember]
-        //public int Alerts_Id1 { get; set; }
     }
 
     [DataContract(Name = "alertdata")]
