@@ -31,9 +31,9 @@ namespace weatherapp
             }
         }
 
-        public static WeatherData ParseWeather()
+        public static WeatherData ParseWeather(WeatherData weather)
         {
-            var weather = CallDarkSky().Result;
+            //var weather = CallDarkSky().Result;
             var direction = GetDirections(weather.currently.windBearing);
 
             Console.WriteLine($"The current temprature is {weather.currently.temperature} with a dew point of {weather.currently.dewPoint} and humidity of {weather.currently.humidity}");

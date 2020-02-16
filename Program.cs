@@ -10,17 +10,21 @@ namespace weatherapp
         public static void Main(string[] args)
         {
             bool exitCode = false;
-            
-            
-            Console.WriteLine(System.Environment.NewLine);
 
-            WeatherRR.ParseWeather();
+            Console.WriteLine(System.Environment.NewLine);
+            
+            WeatherData weather = new WeatherData();
+
+            WeatherRR.ParseWeather(weather);
             
             while (!exitCode)
             {
                 Console.WriteLine("\n Please Select an option:");
+                
                 Console.WriteLine("1: 7 Day Forecast \t 2: Historical Weather (in development) \t e: exit the program");
+                
                 var input = Console.ReadLine();
+                
                 if (input == "1")
                 {
                    Forecast.Next7Days(); 
