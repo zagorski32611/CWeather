@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 <!--  <connectionStrings>
     <add name="weather_app" connectionString="Server=(localdb)\weather_app;Database=weather_app;Trusted_Connection=True;User Id= 'SA' Password='password1#'" />
